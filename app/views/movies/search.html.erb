@@ -1,0 +1,37 @@
+<% provide(:title, "Search") %>
+<h1>映画検索</h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div>
+          <%= form_tag(search_path, method: :get) do %>
+            <%= search_field_tag :looking_for, nil, placeholder: 'タイトルを入力' %>
+            <%= submit_tag '検索' %>
+          <% end %>
+        </div>
+    </div>
+</div>
+        
+<div>
+  <% if @movie_results.blank? %>
+    <p>[<%= @search_term %>]と一致する情報が見つかりませんでした</p>
+  <% else %>
+    <p>[<%= @search_term %>]の検索結果</p>
+    <table border="1">
+      <tr>
+        <th>ポスター</th>
+        <th>タイトル</th>
+        <th>上映日</th>
+        <th>あらすじ</th>
+      </tr>
+      <% @movie_results.each do |movie| %>
+        <tr>
+          <td><%= image_tag("https://image.tmdb.org/t/p/w200#{movie["poster_path"]}", :alt => 'poster') %></td>
+          <td><%= link_to movie['title'], action: 'show', id: "#{movie["id"]}" %></td>
+          <td><%= movie['release_date'] %></td>
+          <td><%= movie['overview'] %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
