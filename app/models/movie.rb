@@ -1,5 +1,8 @@
 class Movie < ApplicationRecord
   include HTTParty
+  self.primary_key = "id"
+  has_many :comments, dependent: :destroy
+  has_many :users, through: :comments
 
   default_options.update(verify: false) # disable SSL verification(必要に応じて)
   default_params api_key: 'b8bb3dcba4118e40c8c7d59fa5dc78c6', language: "ja-JP" #共通パラメタ                 

@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220125090206) do
+ActiveRecord::Schema.define(version: 20220210155801) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id", null: false
+    t.integer "movie_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_comments_on_movie_id"
+    t.index ["user_id", "movie_id", "created_at"], name: "index_comments_on_user_id_and_movie_id_and_created_at"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "movies", id: :bigint, default: nil, force: :cascade do |t|
+    t.string "title"
+    t.string "poster_path"
+    t.index ["id"], name: "sqlite_autoindex_movies_1", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

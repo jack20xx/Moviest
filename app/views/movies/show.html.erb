@@ -1,5 +1,8 @@
 <% provide(:title, "Information") %>
+
 <h1><%= @movie_info['title'] %></h1>
+
+<%= image_tag("https://image.tmdb.org/t/p/w500#{@movie_info['poster_path']}", :alt => 'poster') %>
 
 <p><strong>上映日：</strong><%= @movie_info['release_date'] %></p>
 
@@ -18,4 +21,22 @@
 
 <p><strong>ストーリー：</strong><%= @movie_info['overview'] %></p>
 
-<%= image_tag("https://image.tmdb.org/t/p/w500#{@movie_info['poster_path']}", :alt => 'poster') %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+    <section class="comment_form">
+      <%= render 'shared/comment_form' %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if !@movie_db.nil? && @movie_db.comments.any? %>
+      <h3>Comments (<%= @movie_db.comments.count %>)</h3>
+      <ol class="comments">
+        <%= render @comments %>
+      </ol>
+      <%= will_paginate @comments %>
+    <% end %>
+  </div>
+</div>

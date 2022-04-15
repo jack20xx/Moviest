@@ -5,6 +5,7 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "Example User", email: "user@examle.com", 
                       password: "foobar", password_confirmation: "foobar")
+    @movie = movies(:harry)
   end
   
   test "should be valid" do
@@ -77,4 +78,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember, '')
   end
   
+  test "associated comments should be destroyed" do
+    @user.save
+    @user.comments.create!(content: "Lorem ipsum", movie_id: @movie.id)
+    assert_difference 'Comment.count', -1 do
+      @user.destroy
+    end
+  end
 end
