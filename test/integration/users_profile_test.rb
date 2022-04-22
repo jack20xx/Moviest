@@ -18,5 +18,8 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     @user.comments.paginate(page: 1).each do |comment|
       assert_match comment.content, response.body
     end
+    # assert_select @user.comments.count
+    # assert_match @user.active_relationships.to_s, response.body
+    # assert_match @user.passive_relationships.to_s, response.body
   end
 end
