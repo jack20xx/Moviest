@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get     '/contact',  to: 'static_pages#contact'
   get     '/search',   to: 'movies#search'
   get     '/show',     to: 'movies#show'
+  # get     'comments/:comment_id/movies/:movie_id',     to: 'comments#edit'
   get     '/signup',   to: 'users#new'
   post    '/signup',   to: 'users#create'
   get     '/login',    to: 'sessions#new'
@@ -20,6 +21,9 @@ Rails.application.routes.draw do
   resources :movies
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :comments,            only: [:create, :destroy]
+  resources :comments do
+    resource :comments,           only: [:create, :new, :edit, :update, :destroy]
+    resource :favorites,          only: [:create, :destroy]
+  end
   resources :relationships,       only: [:create, :destroy]
 end

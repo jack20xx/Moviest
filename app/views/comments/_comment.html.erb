@@ -3,8 +3,15 @@
   <span class="user"><%= link_to comment.user.name, comment.user %></span>
   <span class="content"><%= comment.content %></span>
   <span class="timestamp">
+    <% if current_user.already_favorited?(comment) %>
+      <%= link_to '❤', comment_favorites_path(comment), method: :delete %>
+    <% else %>
+      <%= link_to '♡', comment_favorites_path(comment), method: :post %>
+    <% end %>
+    <%= comment.favorites.count %>
     Posted <%= time_ago_in_words(comment.created_at) %> ago.
     <% if current_user?(comment.user) %>
+      <%= link_to "edit", edit_comment_path(comment, movie_id: params[:id]) %>
       <%= link_to "delete", comment, method: :delete,
                                      data: { confirm: "You sure?" } %>
     <% end %>

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :movies,   through: :comments
+  has_many :favorites, dependent: :destroy
   has_many :active_relationships,  class_name:   "Relationship",
                                    foreign_key:  "follower_id",
                                    dependent:    :destroy
@@ -88,6 +89,10 @@ class User < ApplicationRecord
   
   def following?(other_user)
     following.include?(other_user)
+  end
+  
+  def already_favorited?(comment)
+    self.favorites.exists?(comment_id: comment.id)
   end
   
   private
