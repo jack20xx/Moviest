@@ -19,9 +19,11 @@ gem 'rails-i18n'
 gem 'httparty',                '0.20.0'
 gem 'themoviedb-api',          '~> 1.3'
 gem 'pry-rails'
+gem 'dotenv-rails'
+gem 'mysql2'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.13'
+ #gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
 end
 
@@ -43,6 +45,10 @@ end
 group :production do
   gem 'pg',   '0.20.0'
   gem 'fog',  '1.42'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
 # Windows環境ではtzinfo-dataというgemを含める必要があります

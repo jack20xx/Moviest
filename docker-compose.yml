@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+
+  app:
+    build: .
+    command: rm -f /var/www/rails/Moviest/tmp/sockets/.unicorn.sock && bundle exec unicorn_rails -c /var/www/rails/Moviest/config/unicorn.conf.rb -D -E production
+    volumes:
+      - .:/var/www/rails/Moviest
+      - public-data:/var/www/rails/Moviest/public
+      - tmp-data:/var/www/rails/Moviest/tmp
+      - log-data:/var/www/rails/Moviest/log
+    tty: true
+    stdin_open: true
+    command: tail -f /dev/null
+    depends_on:
+      - web
+
+  web:
+    build:
+      context: containers/nginx 
+    volumes:
+      - public-data:/var/www/rails/Moviest/public
+      - tmp-data:/var/www/rails/Moviest/tmp
+    ports:
+      - 80:80
+
+volumes:
+    public-data:
+    tmp-data:
+    log-data:
