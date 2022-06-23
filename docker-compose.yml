@@ -4,28 +4,40 @@ services:
 
   app:
     build: .
-    command: rm -f /var/www/rails/Moviest/tmp/sockets/.unicorn.sock && bundle exec unicorn_rails -c /var/www/rails/Moviest/config/unicorn.conf.rb -D -E production
+    # command: rm -f ./tmp/sockets/.unicorn.sock && bundle exec unicorn_rails -c ./config/unicorn.conf.rb -D -E production
     volumes:
       - .:/var/www/rails/Moviest
-      - public-data:/var/www/rails/Moviest/public
-      - tmp-data:/var/www/rails/Moviest/tmp
-      - log-data:/var/www/rails/Moviest/log
+      - ./public:/var/www/rails/Moviest/public
+      - ./tmp:/var/www/rails/Moviest/tmp
+      - ./log:/var/www/rails/Moviest/log
     tty: true
     stdin_open: true
     command: tail -f /dev/null
     depends_on:
-      - web
+      - db
 
   web:
     build:
       context: containers/nginx 
     volumes:
-      - public-data:/var/www/rails/Moviest/public
-      - tmp-data:/var/www/rails/Moviest/tmp
+      - ./public:/var/www/rails/Moviest/public
+      - ./tmp:/var/www/rails/Moviest/tmp
     ports:
       - 80:80
+  db: 
+    image: mysql:5.7
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    ports: 
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: Moviest_development
+      MYSQL_ROOT_PASSWORD: password
+      
+      
+    #dbのデータを永続化しておく
+    volumes:
+      - mysql-data:/var/lib/mysql
+
 
 volumes:
-    public-data:
-    tmp-data:
-    log-data:
+    mysql-data:
