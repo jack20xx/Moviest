@@ -3,7 +3,7 @@ require 'test_helper'
 class CommentsControllerTest < ActionDispatch::IntegrationTest
   
   def setup
-    # @user = users(:michael)
+    @user = users(:michael)
     # post users_url, params: { user: { name: @user.name, email: @user.email } }
     # @movie = movies(:harry)
     @comment = comments(:orange)

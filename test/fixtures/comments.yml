@@ -18,7 +18,7 @@ cat_video:
   
 most_recent:
   content: "Writing a short test"
-  created_at: <%= Time.zone.now %>
+  created_at: <%= Time.zone.now.to_s(:db) %>
   user: michael
   movie: harry
   

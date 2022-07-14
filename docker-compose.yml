@@ -4,7 +4,7 @@ services:
 
   app:
     build: .
-    # command: rm -f ./tmp/sockets/.unicorn.sock && bundle exec unicorn_rails -c ./config/unicorn.conf.rb -D -E production
+    command: #rm ./tmp/pids/unicorn.pid && rm -f ./tmp/sockets/.unicorn.sock && bundle exec unicorn_rails -c ./config/unicorn.conf.rb -D -E development
     volumes:
       - .:/var/www/rails/Moviest
       - ./public:/var/www/rails/Moviest/public
@@ -24,6 +24,7 @@ services:
       - ./tmp:/var/www/rails/Moviest/tmp
     ports:
       - 80:80
+
   db: 
     image: mysql:5.7
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci

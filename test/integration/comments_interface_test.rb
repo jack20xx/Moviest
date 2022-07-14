@@ -3,7 +3,8 @@ require 'test_helper'
 class CommentsInterfaceTest < ActionDispatch::IntegrationTest
   
   def setup
-    @user = users(:michael)
+    @user  = users(:michael)
+    @movie = movies(:harry)
   end
   
   test "comment interface" do
@@ -17,7 +18,7 @@ class CommentsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'div#error_explanation'
     content = "This comment really ties the room together"
     assert_difference 'Comment.count', 1 do
-      post comments_path, params: { comment: { content: content } }
+      post comments_path, params: { comment: { content: content, movie_id: @movie.id } }
     end
     assert_redirected_to root_url
     follow_redirect!

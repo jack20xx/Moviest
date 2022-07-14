@@ -28,6 +28,6 @@ RUN mkdir -p ./tmp/sockets
 RUN mkdir -p ./tmp/pids
 
 #RUN rm -f ./tmp/sockets/.unicorn.sock
-ENV RAILS_ENV production
+ENV RAILS_ENV development
 RUN rails assets:precompile
 

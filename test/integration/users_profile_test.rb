@@ -8,6 +8,9 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
   end
   
   test "profile display" do
+    get login_path
+    post login_path, params: { session: { email: @user.email, 
+                                          password: 'password' } }
     get user_path(@user)
     assert_template 'users/show'
     assert_select 'title', full_title(@user.name)
