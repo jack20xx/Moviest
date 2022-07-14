@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7
+      - image: circleci/ruby:2.7-node
     working_directory: ~/Moviest
     steps:
       - checkout:
@@ -15,7 +15,7 @@ jobs:
 
   test:
     docker:
-      - image: circleci/ruby:2.7
+      - image: circleci/ruby:2.7-node
       - image: circleci/mysql:5.5
         environment:
           MYSQL_ROOT_PASSWORD: password
@@ -40,7 +40,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/ruby:2.7
+      - image: circleci/ruby:2.7-node
     steps:
       - checkout
       - setup_remote_docker:
