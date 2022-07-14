@@ -22,6 +22,7 @@ development:
 test:
   <<: *default
   database: Moviest_test
+  host: <%= ENV.fetch("APP_DATABASE_HOST") { 'db' } %>
 
 production:
   <<: *default
