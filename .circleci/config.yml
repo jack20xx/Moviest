@@ -44,7 +44,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "ab:32:a9:23:89:55:2c:32:15:78:8a:7f:f5:d6:04:5c"
+            - 67:6b:ec:27:72:12:8f:62:6f:a5:b3:1d:97:39:e4:0e
       - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/rails/Moviest/ && git pull origin master'
 
 
