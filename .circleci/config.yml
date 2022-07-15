@@ -39,12 +39,17 @@ jobs:
           command: bundle exec rake test
 
   deploy:
-    docker:
-      - image: circleci/ruby:2.7-node
+    machine:
+      image: circleci/classic:edge
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 19.03.13
+      - add_ssh_keys:
+          fingerprints:
+            - ab:32:a9:23:89:55:2c:32:15:78:8a:7f:f5:d6:04:5c
+      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/rails/Moviest && git pull'
+
+      # - setup_remote_docker:
+      #     version: 19.03.13
       # - heroku/install
       # - run:
       #     name: heroku login
@@ -72,4 +77,4 @@ workflows:
             - test
           filters:
             branches:
-              only: main
+              only: master
