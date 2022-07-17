@@ -45,7 +45,11 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - 67:6b:ec:27:72:12:8f:62:6f:a5:b3:1d:97:39:e4:0e
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/rails/Moviest/ && git pull origin master'
+      - run:
+         name: Start ssh-key-scan
+         command: ssh-keyscan ${HOST_NAME} >> ~/.ssh/known_hosts
+      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/rails/Moviest/ && git pull origin master && docker-compose up -d'
+      
 
 
 workflows:
