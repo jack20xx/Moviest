@@ -48,7 +48,7 @@ jobs:
       - run:
          name: Start ssh-key-scan
          command: ssh-keyscan ${HOST_NAME} >> ~/.ssh/known_hosts
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/rails/Moviest/ && git pull origin master && docker compose up -d && docker compose exec app rm ./tmp/pids/unicorn.pid && rm -f ./tmp/sockets/.unicorn.sock && bundle exec unicorn_rails -c ./config/unicorn.conf.rb -D -E production'
+      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/rails/Moviest/ && git pull origin master && docker compose up -d'
       
 
 
