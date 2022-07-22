@@ -6,7 +6,8 @@ services:
     build: .
     env_file:
       - ./.env
-    command: bundle exec unicorn_rails -c ./config/unicorn.conf.rb -D -E $ENVIRONMENT
+    command: docker compose exec app sh -c "rm -f ./tmp/pids/unicorn.pid && rm -f ./tmp/sockets/.unicorn.sock && bundle exec unicorn_rails -c ./config/unicorn.conf.rb -D -E $ENVIRONMENT"
+    # command: "rm -f ./tmp/pids/unicorn.pid && rm -f ./tmp/sockets/.unicorn.sock && bundle exec unicorn_rails -c ./config/unicorn.conf.rb -D -E ${ENVIRONMENT}"
     volumes:
       - .:/var/www/rails/Moviest
       - ./public:/var/www/rails/Moviest/public

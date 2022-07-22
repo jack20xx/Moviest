@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails',                   '5.1.6'
+gem 'unicorn'
 gem 'bcrypt',                  '3.1.12'
 gem 'faker',                   '1.7.3'
 gem 'carrierwave',             '1.2.2'
@@ -47,9 +48,9 @@ group :production do
   gem 'fog',  '1.42'
 end
 
-group :production, :staging do
-  gem 'unicorn'
-end
+# group :production, :staging do
+#   gem 'unicorn'
+# end
 
 # Windows環境ではtzinfo-dataというgemを含める必要があります
 #gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
