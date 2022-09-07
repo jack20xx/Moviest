@@ -7,7 +7,7 @@ services:
       - 443:443
     restart: always
     environment:
-      DOMAINS: '${DOMAIN} -> http://web:8000'
+      DOMAINS: '${DOMAIN} -> ${HTTP}'
       STAGE: ${STAGE}
     volumes:
       - https-portal-data:/var/lib/https-portal
