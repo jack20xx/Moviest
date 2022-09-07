@@ -37,8 +37,8 @@ services:
       # - tmp-data:/myproject/tmp/sockets
       - ./public:/var/www/rails/Moviest/public
       - ./tmp:/var/www/rails/Moviest/tmp
-    ports:
-      - 8000:8000
+    # ports:
+      # - 8000:8000
 
   db: 
     image: mysql:5.7
