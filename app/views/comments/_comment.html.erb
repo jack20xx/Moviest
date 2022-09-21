@@ -9,9 +9,9 @@
       <%= link_to '♡', comment_favorites_path(comment), method: :post %>
     <% end %>
     <%= comment.favorites.count %>
-    Posted <%= time_ago_in_words(comment.created_at) %> ago.
+    Posted <%= time_ago_in_words(comment.updated_at) %> ago.
     <% if current_user?(comment.user) %>
-      <%= link_to "edit", edit_comment_path(comment, movie_id: params[:id]) %>
+      <%= link_to "edit", "/comments/#{comment.id}/edit?movie_id=#{comment.movie_id}" %>
       <%= link_to "delete", comment, method: :delete,
                                      data: { confirm: "You sure?" } %>
     <% end %>

@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirected_to root_url and return unless @user.activated?
     @comments = @user.comments.paginate(page: params[:page])
+    @current_user_comment = Comment.find_by(user_id: current_user.id) if logged_in?
   end
   
   def new

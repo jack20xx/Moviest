@@ -43,7 +43,8 @@ class CommentsController < ApplicationController
       if comment_count < 1
         @comment.save
         flash[:success] = "Comment created!"
-        redirect_to root_url
+        # redirect_to root_url
+        redirect_to "/movies/#{@comment.movie_id}"
       else
         flash[:success] = "Can't post a comment twice on the same movie"
         redirect_to request.referrer || root_url
@@ -80,7 +81,10 @@ class CommentsController < ApplicationController
     # @comment = Comment.find(params[:id])
     # @movie   = Movie.find(param name="comment" value="{#movie_id}")
     if @comment.update(comment_params)
-      redirect_to root_url
+      # redirect_to root_url
+      @comment.save
+       flash[:success] = "Comment created!"
+       redirect_to "/movies/#{@comment.movie_id}"
     else
       render :edit
     end
