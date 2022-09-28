@@ -1,42 +1,26 @@
-<% provide(:title, "Information") %>
-
-<h1><%= @movie_info['title'] %></h1>
-
-<%= image_tag("https://image.tmdb.org/t/p/w500#{@movie_info['poster_path']}", :alt => 'poster') %>
-
-<p><strong>上映日：</strong><%= @movie_info['release_date'] %></p>
-
-<p><strong>上映時間：</strong><%= @movie_info['runtime'] %>分</p>
-
-<p>
-    <strong>ジャンル：</strong>
-    <% @movie_info['genres'].each do |genre| %>
-        <% if genre == @movie_info['genres'].last %>
-            <span><%= genre['name'] %></span>
-        <% else %>
-            <span><%= genre['name'] %>、</span>
+<% if logged_in? %>
+  <%= render 'show_information'%>
+  <p><strong>🔶レビューを投稿しましょう！</strong></p>
+    <div class="row">
+      <aside class="col-md-4">
+        <section class="user_info">
+          <%= render 'shared/user_info' %>
+        </section>
+        <section class="comment_form">
+          <%= render 'shared/comment_form' %>
+        </section>
+      </aside>
+      <div class="col-md-8">
+        <% if !@movie_db.nil? && @movie_db.comments.any? %>
+          <h3>Comments (<%= @movie_db.comments.count %>)</h3>
+          <ol class="comments">
+            <%= render @comments %>
+          </ol>
+          <%= will_paginate @comments %>
         <% end %>
-    <% end %>
-</p>
-
-<p><strong>ストーリー：</strong><%= @movie_info['overview'] %></p>
-
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= render 'shared/user_info' %>
-    </section>
-    <section class="comment_form">
-      <%= render 'shared/comment_form' %>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <% if !@movie_db.nil? && @movie_db.comments.any? %>
-      <h3>Comments (<%= @movie_db.comments.count %>)</h3>
-      <ol class="comments">
-        <%= render @comments %>
-      </ol>
-      <%= will_paginate @comments %>
-    <% end %>
-  </div>
-</div>
+      </div>
+    </div>
+  <% else %>
+  <%= render 'show_information'%>
+  <%= link_to "🔶ログインしてレビューを投稿しましょう！", root_path %>
+<% end %>

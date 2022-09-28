@@ -1,0 +1,22 @@
+<% provide(:title, "Information") %>
+
+<h1><%= @movie_info['title'] %></h1>
+
+<%= image_tag("https://image.tmdb.org/t/p/w500#{@movie_info['poster_path']}", :alt => 'poster') %>
+
+<p><strong>上映日：</strong><%= @movie_info['release_date'] %></p>
+
+<p><strong>上映時間：</strong><%= @movie_info['runtime'] %>分</p>
+
+<p>
+    <strong>ジャンル：</strong>
+    <% @movie_info['genres'].each do |genre| %>
+        <% if genre == @movie_info['genres'].last %>
+            <span><%= genre['name'] %></span>
+        <% else %>
+            <span><%= genre['name'] %>、</span>
+        <% end %>
+    <% end %>
+</p>
+
+<p><strong>ストーリー：</strong><%= @movie_info['overview'] %></p>
