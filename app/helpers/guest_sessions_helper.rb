@@ -1,2 +1,2 @@
-module GuestSessionsControllerHelper
+module GuestSessionsHelper
 end
