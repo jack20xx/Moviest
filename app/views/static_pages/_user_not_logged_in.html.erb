@@ -3,6 +3,8 @@
   <h2>This is the home page for the Moviest.</h2>
   
   <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Guest login", guest_login_path, method: :post, class: "btn btn-lg btn-primary" %>
 </div>
 
 <%= render 'movie_popular' %>
