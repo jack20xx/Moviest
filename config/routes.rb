@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # get     'comments/:comment_id/movies/:movie_id',     to: 'comments#edit'
   get     '/signup',      to: 'users#new'
   post    '/signup',      to: 'users#create'
-  post    '/guest_login', to: "guest_sessions#create"
+  post    '/guest_login', to: 'guest_sessions#create'
   get     '/login',       to: 'sessions#new'
   post    '/login',       to: 'sessions#create'
   delete  '/logout',      to: 'sessions#destroy'
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
   resources :movies
   resources :account_activations, only: [:edit]
+  resources :resend_activations,  only: [:new, :create]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :comments do
     resource :comments,           only: [:create, :new, :edit, :update, :destroy]

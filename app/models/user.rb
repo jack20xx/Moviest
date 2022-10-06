@@ -94,7 +94,13 @@ class User < ApplicationRecord
   def already_favorited?(comment)
     self.favorites.exists?(comment_id: comment.id)
   end
-  
+
+  def resend_activation_digest
+    self.activation_token   = User.new_token
+    self.activation_digest  = User.digest(activation_token)
+    update_columns(activation_digest: User.digest(activation_token))
+  end
+
   private
     def downcase_email
       self.email.downcase!
@@ -103,6 +109,7 @@ class User < ApplicationRecord
     def create_activation_digest
       self.activation_token   = User.new_token
       self.activation_digest  = User.digest(activation_token)
+      # update_columns(activation_digest: User.digest(activation_token))
     end
       
 end

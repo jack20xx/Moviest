@@ -12,6 +12,8 @@
   
   <%= f.label :password_confirmation%>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+  <%= link_to "(認証メールの再送はこちらから)", new_resend_activation_path %>
   
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
