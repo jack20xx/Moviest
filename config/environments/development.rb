@@ -31,7 +31,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
   host = 'localhost:80'
   config.action_mailer.default_url_options = { host: host, protocol: 'https' }
-  # config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  # #config.action_mailer.default_url_options = { host: host, protocol: 'http' }
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
