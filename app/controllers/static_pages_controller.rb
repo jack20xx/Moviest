@@ -7,9 +7,9 @@ class StaticPagesController < ApplicationController
     end
   end
 
-  def guest_user
-    current_user == User.find_by(email: 'guest@example.com')
-  end
+  # def guest_user
+  #   current_user == User.find_by(email: 'guest@example.com')
+  # end
   
   def help
   end

@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   
+  def guest_user
+    current_user == User.find_by(email: 'guest@example.com')
+  end
   
   # before_action :set_locale
   
