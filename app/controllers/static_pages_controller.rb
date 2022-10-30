@@ -6,10 +6,6 @@ class StaticPagesController < ApplicationController
       @feed_items = current_user.feed.paginate(page: params[:page])
     end
   end
-
-  # def guest_user
-  #   current_user == User.find_by(email: 'guest@example.com')
-  # end
   
   def help
   end
