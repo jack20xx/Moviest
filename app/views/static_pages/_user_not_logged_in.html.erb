@@ -1,13 +1,17 @@
 <div class="center jumbotron">
-  <h1>Welcome to the Moviest!!!</h1>
-  <h2>This is the home page for the Moviest.</h2>
+  <h1>Moviestへようこそ</h1>
+  <h2>
+  映画を検索するとレビューを投稿できます。</br>
+  </br>
+  🔸投稿機能を利用される方は、下記よりログイン方法を選択してください。
+  </h2>
   
-  <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Guest login", guest_login_path, method: :post, class: "btn btn-lg btn-primary" %>
+  <%= link_to "サインアップ", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "ログイン", login_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "ゲスト（お試し用）", guest_login_path, method: :post, class: "btn btn-lg btn-primary" %>
 </div>
 
 <%= render 'movie_popular' %>
 
 <%= link_to image_tag("moviest.png", alt: "moviest logo"), 
-            'https://55440629998843528703f7cad1a21571.vfs.cloud9.us-east-2.amazonaws.com' %>
+            'https://moviest-jp.com' %>
