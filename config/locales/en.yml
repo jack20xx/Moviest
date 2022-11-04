@@ -1,0 +1,31 @@
+en:
+  views:
+    static_pages:
+      _user_logged_in:
+        s1_html: <h3>Comments</h3>
+      _user_not_logged_in:
+        s1_html: <h1>Welcome to the Moviest</h1>
+        s2_html: 
+          <h2>
+          You can search movies and post your reviews.</br>
+          </br>
+          🔸If you try to use a posting reviews system, please log in as a guest.
+          </h2>
+        button1: "Sign up"
+        button2: "Log in"
+        button3: "Guest"
+      about:
+        s1_html: <h1>About</h1>
+                 <h2>
+                 On this website, you can search all kinds of movies from old-fashioned to the latest one</br>
+                 and post your reviews.
+                 </h2>
+      contact: 
+        s1_html: <h1>Contact</h1>
+                 <h2>
+                   Contact us about the Moviest at the 
+                   <a href="https://github.com/jack20xx/Moviest">Github page</a>.
+                 </h2>
+      help: 
+        s1_html: <h1>Help</h1>
+                 <h2>We update Q&A regularly.</h2>

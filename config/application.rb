@@ -20,6 +20,10 @@ module Moviest
     # config.i18n.available_locales = %i(ja en)
     # config.i18n.enforce_available_locales = true
     # config.i18n.default_locale = :ja
+
+    config.i18n.load_path += Dir[Rails.root.join('my/locales/*.{rb,yml}')]
+    config.i18n.default_locale = :ja
+    
     config.action_view.embed_authenticity_token_in_remote_forms = true
 
     config.time_zone = 'Tokyo'

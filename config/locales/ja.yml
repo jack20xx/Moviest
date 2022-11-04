@@ -1,0 +1,31 @@
+ja:
+  views:
+    static_pages:
+      _user_logged_in:
+        s1_html: <h3>コメント一覧</h3>
+      _user_not_logged_in:
+        s1_html: <h1>ようこそMoviestへ</h1>
+        s2_html: 
+          <h2>
+          映画を検索するとレビューを投稿できます。</br>
+          </br>
+          🔸投稿機能を利用される方は、下記よりログイン方法を選択してください。
+          </h2>
+        button1: "サインアップ"
+        button2: "ログイン"
+        button3: "ゲスト（お試し用）"
+      about:
+        s1_html: <h1>このサイトについて</h1>
+                 <h2>
+                 当サイトでは、昔懐かしの映画から最新作まで</br>
+                 ありとあらゆる作品を検索し、レビューを投稿することができます。
+                 </h2>
+      contact:
+         s1_html: <h1>お問い合わせ</h1>
+                  <h2>
+                    当サイトに関するお問い合わせは
+                    <a href="https://github.com/jack20xx/Moviest">Github</a>まで。
+                  </h2>
+      help: 
+        s1_html: <h1>ヘルプ</h1>
+                 <h2>よくあるお問い合わせ内容を随時、更新していきます。</h2>
