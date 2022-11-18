@@ -1,4 +1,13 @@
 ja:
+  activerecord:
+    models:
+      user:
+    attributes:
+      user:
+        email: メールアドレス
+        name: お名前
+        password: パスワード
+        password_confirmation: パスワード再入力
   views:
     comments:
       _comment:
@@ -12,6 +21,37 @@ ja:
         s2_html: "時間:"
         s3_html: "ジャンル:"
         s4_html: "ストーリー:"
+    layouts:
+      _footer:
+        about: "このサイトについて"
+        contact: "お問い合わせ"
+      _header:
+        placeholder: "タイトルを入力"
+        button1: "検索"
+        lang: "English"
+        home: "ホーム"
+        help: "ヘルプ"
+        users: "ユーザーの一覧"
+        account: "アカウント"
+        logout: "ログアウト"
+        profile: "プロフィール"
+        settings: "設定"
+        login: "ログイン"
+
+    sessions:
+      new:
+        title: "ログイン"
+        s1_html: <h1>ログイン</h1>
+        s2_html: "（パスワードを忘れた方）"
+        s3_html: <span>このコンピュータにログイン情報を記憶させる</span>
+        button1: "ログイン"
+        s4_html: "&nbsp;"
+        s5_html: "新規登録はこちら"
+    users:
+      new:
+        title: "新規登録"
+        button1: "アカウントを作成"
+        s1_html: <h1>新規登録</h1>
         
     static_pages:
       _user_logged_in:
@@ -24,22 +64,25 @@ ja:
           </br>
           🔸投稿機能を利用される方は、下記よりログイン方法を選択してください。
           </h2>
-        button1: "サインアップ"
+        button1: "新規登録"
         button2: "ログイン"
         button3: "ゲスト（お試し用）"
       about:
+        title: "このサイトについて"
         s1_html: <h1>このサイトについて</h1>
                  <h2>
                  当サイトでは、昔懐かしの映画から最新作まで</br>
                  ありとあらゆる作品を検索し、レビューを投稿することができます。
                  </h2>
       contact:
-         s1_html: <h1>お問い合わせ</h1>
+        title: "お問い合わせ"
+        s1_html: <h1>お問い合わせ</h1>
                   <h2>
                     当サイトに関するお問い合わせは
                     <a href="https://github.com/jack20xx/Moviest">Github</a>まで。
                   </h2>
       help: 
+        title: "ヘルプ"
         s1_html: <h1>ヘルプ</h1>
                  <h2>よくあるお問い合わせ内容を随時、更新していきます。</h2>
   test:

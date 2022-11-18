@@ -12,6 +12,36 @@ en:
         s2_html: "Runtime:"
         s3_html: "Genres:"
         s4_html: "Storyline:"
+    layouts:
+      _footer:
+        about: "About"
+        contact: "Contact"
+      _header:
+        placeholder: "movie title..."
+        button1: "Search"
+        lang: "日本語"
+        home: "Home"
+        help: "Help"
+        users: "All users"
+        account: "Account"
+        logout: "Log out"
+        profile: "Profile"
+        settings: "Settings"
+        login: "Log in"
+    sessions:
+      new:
+        title: "Log in"
+        s1_html: <h1>Log in</h1>
+        s2_html: "(Forgot password)"
+        s3_html: <span>Remember me on this computer</span>
+        button1: "Log in"
+        s4_html: "New user?"
+        s5_html: "Sign up now!"
+    users:
+      new:
+        title: "Sign up"
+        button1: "Create my account"
+        s1_html: <h1>Sign up</h1>
 
     static_pages:
       _user_logged_in:
@@ -28,18 +58,21 @@ en:
         button2: "Log in"
         button3: "Guest"
       about:
+        title: "About"
         s1_html: <h1>About</h1>
                  <h2>
                  On this website, you can search all kinds of movies from old-fashioned to the latest one</br>
                  and post your reviews.
                  </h2>
       contact: 
+        title: "Contact"
         s1_html: <h1>Contact</h1>
                  <h2>
                    Contact us about the Moviest at the 
                    <a href="https://github.com/jack20xx/Moviest">Github page</a>.
                  </h2>
       help: 
+        title: "Help"
         s1_html: <h1>Help</h1>
                  <h2>We update Q&A regularly.</h2>
   test:

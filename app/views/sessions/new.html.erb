@@ -1,24 +1,24 @@
-<% provide(:title, 'Log in') %>
-<h1>Log in</h1>
+<% provide(:title, t('views.sessions.new.title')) %>
+<%= t('views.sessions.new.s1_html') %>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
   
-      <%= f.label :email %>
+      <%= f.label :email, t('activerecord.attributes.user.email') %>
       <%= f.email_field :email, class: "form-control" %>
     
-      <%= f.label :password %>
-      <%= link_to "(Forgot password)", new_password_reset_path %>
+      <%= f.label :password, t('activerecord.attributes.user.password') %>
+      <%= link_to t('views.sessions.new.s2_html'), new_password_reset_path %>
       <%= f.password_field :password, class: "form-control" %>
       
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
-        <span>Remember me on this computer</span>
+        <%= t('views.sessions.new.s3_html') %>
       <% end %>
     
-      <%= f.submit "Log in", class: "btn btn-primry" %>
+      <%= f.submit t('views.sessions.new.button1'), class: "btn btn-primry" %>
     <% end %>
   
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p><%= t('views.sessions.new.s4_html') %> <%= link_to t('views.sessions.new.s5_html'), signup_path %></p>
   </div>
 </div>
