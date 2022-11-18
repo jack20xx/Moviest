@@ -40,11 +40,16 @@ class CommentsController < ApplicationController
     #   end
     # end
     if @comment.valid?
-      if comment_count < 1
+      if comment_count < 1 and request.path.include?("/ja") then
         @comment.save
         flash[:success] = "Comment created!"
         # redirect_to root_url
-        redirect_to "/movies/#{@comment.movie_id}"
+        redirect_to "/ja/movies/#{@comment.movie_id}"
+      elsif comment_count < 1 and request.path.include?("/en") then
+        @comment.save
+        flash[:success] = "Comment created!"
+        # redirect_to root_url
+        redirect_to "/en/movies/#{@comment.movie_id}"
       else
         flash[:success] = "Can't post a comment twice on the same movie"
         redirect_to request.referrer || root_url

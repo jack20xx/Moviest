@@ -7,6 +7,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     # post users_url, params: { user: { name: @user.name, email: @user.email } }
     # @movie = movies(:harry)
     @comment = comments(:orange)
+    @locale = {locale: "ja"}
   end
   
   test "should redirect create when not logged in" do
@@ -18,7 +19,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   
   test "should redirect destroy when not logged in" do
     assert_no_difference 'Comment.count' do
-      delete comment_path(@comment)
+      delete comment_path(@comment, @locale)
     end
     assert_redirected_to login_url
   end

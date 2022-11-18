@@ -1,5 +1,18 @@
 en:
   views:
+    comments:
+      _comment:
+        s1_html: "( Posted"
+        s2_html: "ago )"
+        edit: "edit"
+        delete: "delete"
+        s3_html: "You sure?"
+      edit:
+        s1_html: "Release date:"
+        s2_html: "Runtime:"
+        s3_html: "Genres:"
+        s4_html: "Storyline:"
+
     static_pages:
       _user_logged_in:
         s1_html: <h3>Comments</h3>
@@ -29,3 +42,7 @@ en:
       help: 
         s1_html: <h1>Help</h1>
                  <h2>We update Q&A regularly.</h2>
+  test:
+    integration:
+      comments_interface_test:
+        delete: "delete"

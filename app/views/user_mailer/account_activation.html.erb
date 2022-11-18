@@ -1,10 +1,16 @@
 <h1>Moviest</h1>
 
-<p>Hi <%= @user.name %>,</p>
+<p><%= @user.name %> さん / Hi <%= @user.name %>,<p/>
 
 <p>
-  Welcome to the Moviest! Click on the link below to activate your account:
+Moviestにご登録いただきありがとうございます！
+<br>
+リンク先からアカウントの有効化をしてください。
+<br>
+(Welcome to the Moviest!
+<br>
+Click on the link below to activate your account:)
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token, 
+<%= link_to "アカウント認証(Activate)", edit_account_activation_url(id: @user.activation_token, 
                                                     email: @user.email) %>

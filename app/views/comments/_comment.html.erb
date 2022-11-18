@@ -2,8 +2,11 @@
   <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
   <span class="user"><%= link_to comment.user.name, comment.user %></span>
   <span class="content"><%= comment.content %></span>
-  <% if comment.movie %>
-  <span class="title"><%= link_to comment.movie.title, "/movies/#{comment.movie_id}" %></span>
+  <% if comment.movie and request.path.include?("/ja") and !request.path.include?("/movies") %>
+  <span class="title"><%= link_to comment.movie.title, "ja/movies/#{comment.movie_id}" %></span>
+  <% end %>
+  <% if comment.movie and request.path.include?("/en") and !request.path.include?("/movies") %>
+  <span class="title"><%= link_to comment.movie.title, "en/movies/#{comment.movie_id}" %></span>
   <% end %>
   <span class="timestamp">
     <% if current_user.already_favorited?(comment) %>
@@ -12,11 +15,16 @@
       <%= link_to '♡', comment_favorites_path(comment), method: :post %>
     <% end %>
     <%= comment.favorites.count %>
-    Posted <%= time_ago_in_words(comment.updated_at) %> ago.
-    <% if current_user?(comment.user) %>
-      <%= link_to "edit", "/comments/#{comment.id}/edit?movie_id=#{comment.movie_id}" %>
-      <%= link_to "delete", comment, method: :delete,
-                                     data: { confirm: "You sure?" } %>
+    <%= t('views.comments._comment.s1_html') %> <%= time_ago_in_words(comment.updated_at) %> <%= t('views.comments._comment.s2_html') %>
+    <% if current_user?(comment.user) and request.path.include?("/ja") and !request.path.include?("/comments") %>
+      <%= link_to t('views.comments._comment.edit'), "ja/comments/#{comment.id}/edit?movie_id=#{comment.movie_id}" %>
+      <%= link_to t('views.comments._comment.delete'), comment, method: :delete,
+                                     data: { confirm: t('views.comments._comment.s3_html') } %>
+    <% end %>
+    <% if current_user?(comment.user) and request.path.include?("/en") and !request.path.include?("/comments") %>
+      <%= link_to t('views.comments._comment.edit'), "en/comments/#{comment.id}/edit?movie_id=#{comment.movie_id}" %>
+      <%= link_to t('views.comments._comment.delete'), comment, method: :delete,
+                                     data: { confirm: t('views.comments._comment.s3_html') } %>
     <% end %>
   </span>
 </li>

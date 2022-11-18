@@ -16,11 +16,22 @@ class Movie < ApplicationRecord
     get("", query: { query: term}) # {}の中身はパラメタ
   end
 
+  def self.search_en term
+    base_uri 'https://api.themoviedb.org/3/search/movie'
+    get("", query: { query: term, language: 'en-EN'}) # {}の中身はパラメタ
+  end
+
+
   # 指定の映画の詳細情報を取得
   # https://developers.themoviedb.org/3/movies/get-movie-detailsに参照
   def self.details id
     #base_uri "https://api.themoviedb.org/3/movie/#{id}"
     get("https://api.themoviedb.org/3/movie/#{id}", query: {} ) #パラメタなし
+  end
+
+  def self.details_en id
+    #base_uri "https://api.themoviedb.org/3/movie/#{id}"
+    get("https://api.themoviedb.org/3/movie/#{id}", query: {language: 'en_EN'} ) #パラメタなし
   end
   
   # def self.popular(page=1)

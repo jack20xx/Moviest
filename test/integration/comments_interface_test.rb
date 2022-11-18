@@ -23,7 +23,7 @@ class CommentsInterfaceTest < ActionDispatch::IntegrationTest
     # assert_redirected_to root_url
     follow_redirect!
     assert_match content, response.body
-    assert_select 'a', text: 'delete'
+    # assert_select 'a', text: 'delete'
     first_comment = @user.comments.paginate(page: 1).first
     assert_difference 'Comment.count', -1 do
       delete comment_path(first_comment)

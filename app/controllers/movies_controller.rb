@@ -2,12 +2,20 @@ class MoviesController < ApplicationController
 
   def search
     @search_term = params[:looking_for]
-    @movie_results = Movie.search(@search_term)["results"]
+    if request.path.include?("/ja")
+      @movie_results = Movie.search(@search_term)["results"]
+    else
+      @movie_results = Movie.search_en(@search_term)["results"]
+    end
   end
   
   def show
     @movies = []
-    @movie_info = Movie.details(params[:id])
+    if request.path.include?("/ja")
+      @movie_info = Movie.details(params[:id])
+    else
+      @movie_info = Movie.details_en(params[:id])
+    end
     @current_user_comment = Comment.find_by(user_id: current_user.id, movie_id: @movie_info["id"]) if logged_in?
     @comment = Comment.new if logged_in?
     

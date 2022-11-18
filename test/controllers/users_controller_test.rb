@@ -5,6 +5,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user       = users(:michael)
     @other_user = users(:archer)
+    @locale = {locale: "ja"}
   end
   
   test "should redirect index when not logged in" do
@@ -18,14 +19,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should redirect edit when not logged in" do
-    get edit_user_path(@user)
+    get edit_user_path(@user, @locale)
     assert_not flash.empty?
     assert_redirected_to login_url
   end
   
   test "should redirect update when not logged in" do
-    patch user_path(@user), params: { user: { name:  @user.name,
-                                              email: @user.email } }
+    patch user_path(@user, @locale), params: { user: { name:  @user.name,
+                                              email: @user.email} }
     assert_not flash.empty?
     assert_redirected_to login_url
   end
@@ -42,7 +43,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   
   test "should redirect destroy when not logged in" do
     assert_no_difference 'User.count' do
-      delete user_path(@user)
+      delete user_path(@user, @locale)
     end
     assert_redirected_to login_url
   end
@@ -56,12 +57,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should redirect following when not logged in" do
-    get following_user_path(@user)
+    get following_user_path(@user, @locale)
     assert_redirected_to login_url
   end
   
   test "should redirect followers when not logged in" do
-    get followers_user_path(@user)
+    get followers_user_path(@user, @locale)
     assert_redirected_to login_url
   end
 end

@@ -4,6 +4,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   
   def setup
     @user = users(:michael)
+    @locale = {locale: "ja"}
   end
   
   test "unsuccessful edit" do
@@ -18,7 +19,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
   
   test "successful edit with friendly forwarding" do
-    get edit_user_path(@user)
+    get edit_user_path(@user, @locale)
     assert_equal session[:forwarding_url], edit_user_url(@user)
     log_in_as(@user)
     assert_nil session[:forwarding_url]

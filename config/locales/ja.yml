@@ -1,5 +1,18 @@
 ja:
   views:
+    comments:
+      _comment:
+        s1_html: "("
+        s2_html: "前 )"
+        edit: "編集"
+        delete: "削除"
+        s3_html: "本当によろしいですか？"
+      edit:
+        s1_html: "公開日:"
+        s2_html: "時間:"
+        s3_html: "ジャンル:"
+        s4_html: "ストーリー:"
+        
     static_pages:
       _user_logged_in:
         s1_html: <h3>コメント一覧</h3>
@@ -29,3 +42,7 @@ ja:
       help: 
         s1_html: <h1>ヘルプ</h1>
                  <h2>よくあるお問い合わせ内容を随時、更新していきます。</h2>
+  test:
+    integration:
+      comments_interface_test:
+        delete: "削除"
