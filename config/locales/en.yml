@@ -28,6 +28,10 @@ en:
         profile: "Profile"
         settings: "Settings"
         login: "Log in"
+    movies:
+      search:
+        s1_html: <h1>Search</h1>
+    
     sessions:
       new:
         title: "Log in"
