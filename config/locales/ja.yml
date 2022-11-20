@@ -60,6 +60,14 @@ ja:
         s4_html: "&nbsp;"
         s5_html: "新規登録はこちら"
     users:
+      edit:
+        title: "設定"
+        s1_html: <h1>設定の変更</h1>
+        s2_html: "アイコンの変更"
+      index:
+        title: "ユーザーの一覧"
+        s1_html: <h1>ユーザーの一覧</h1>
+
       new:
         title: "新規登録"
         button1: "アカウントを作成"

@@ -51,6 +51,13 @@ en:
         s4_html: "New user?"
         s5_html: "Sign up now!"
     users:
+      edit:
+        title: "Profile"
+        s1_html: <h1>Update your profile</h1> 
+        s2_html: "Change profile picture"
+      index:
+        title: "All users"
+        s1_html: <h1>All users</h1>
       new:
         title: "Sign up"
         button1: "Create my account"
