@@ -5,8 +5,9 @@
     <div class="col-md-6 col-md-offset-3">
         <div>
           <%= form_tag(search_path, method: :get) do %>
-            <%= search_field_tag :looking_for, nil, placeholder: 'タイトルを入力' %>
-            <%= submit_tag '検索' %>
+            <%= search_field_tag :looking_for, nil, 
+            placeholder: t('views.movies.search.placeholder') %>
+            <%= submit_tag t('views.movies.search.button1') %>
           <% end %>
         </div>
     </div>
@@ -14,15 +15,15 @@
         
 <div>
   <% if @movie_results.blank? %>
-    <p>情報が見つかりませんでした</p>
+    <%= t('views.movies.search.s2_html') %>
   <% else %>
-    <p><%= @search_term %> の検索結果</p>
+    <p><%= t('views.movies.search.s3_html') %><%= @search_term %> <%= t('views.movies.search.s4_html') %></p>
     <table border="1">
       <tr>
-        <th>ポスター</th>
-        <th>タイトル</th>
-        <th>上映日</th>
-        <th>あらすじ</th>
+        <%= t('views.movies.search.s5_html') %>
+        <%= t('views.movies.search.s6_html') %>
+        <%= t('views.movies.search.s7_html') %>
+        <%= t('views.movies.search.s8_html') %>
       </tr>
       <% @movie_results.each do |movie| %>
         <tr>

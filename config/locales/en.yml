@@ -2,7 +2,7 @@ en:
   views:
     comments:
       _comment:
-        s1_html: "( Posted"
+        s1_html: "("
         s2_html: "ago )"
         edit: "edit"
         delete: "delete"
@@ -31,7 +31,16 @@ en:
     movies:
       search:
         s1_html: <h1>Search</h1>
-    
+        placeholder: "movie title..."
+        button1: "Search"
+        s2_html: <p>No results</p>
+        s3_html: "Search&nbsp;&quot;&nbsp;"
+        s4_html: "&quot;"
+        s5_html: <th>Poster</th>
+        s6_html: <th>Title</th>
+        s7_html: <th>Release date</th>
+        s8_html: <th>Storyline</th>
+
     sessions:
       new:
         title: "Log in"

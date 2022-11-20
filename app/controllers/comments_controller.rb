@@ -68,7 +68,11 @@ class CommentsController < ApplicationController
   end
   
   def edit
-    @movie_info = Movie.details(params[:movie_id])
+    if request.path.include?("/ja")
+      @movie_info = Movie.details(params[:movie_id])
+    else
+      @movie_info = Movie.details_en(params[:movie_id])
+    end
     @comment = Comment.find(params[:id])
     
     if Movie.exists?(@movie_info["id"])

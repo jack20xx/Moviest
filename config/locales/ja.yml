@@ -40,6 +40,15 @@ ja:
     movies:
       search:
         s1_html: <h1>映画検索</h1>
+        placeholder: "タイトルを入力"
+        button1: "検索"
+        s2_html: <p>情報が見つかりませんでした</p>
+        s3_html: "&quot;&nbsp;"
+        s4_html: "&quot;&nbsp;の検索結果"
+        s5_html: <th>ポスター</th>
+        s6_html: <th>タイトル</th>
+        s7_html: <th>上映日</th>
+        s8_html: <th>あらすじ</th>
 
     sessions:
       new:
