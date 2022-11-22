@@ -3,8 +3,6 @@ ja:
     models:
       user:
     attributes:
-      password_reset:
-        email: メールアドレス
       user:
         email: メールアドレス
         name: お名前
@@ -61,7 +59,22 @@ ja:
         s6_html: <th>タイトル</th>
         s7_html: <th>上映日</th>
         s8_html: <th>あらすじ</th>
-
+      show:
+        s1_html: <p><strong>🔶レビューを投稿しましょう！</strong></p>
+        s2_html: "レビュー"
+        s3_html: "🔶ログインしてレビューを投稿しましょう！"
+    password_resets:
+      new:
+        title: "パスワードを忘れた方"
+        s1_html: <h1>パスワードを忘れた方</h1>
+        label: "ご登録されたメールアドレス"
+        button: "送信"
+    resend_activations:
+      new:
+        title: "認証メールの再送"
+        s1_html: <h1>認証メールの再送</h1>
+        label: "認証の際に利用されたメールアドレス"
+        button: "送信"
     sessions:
       new:
         title: "ログイン"
@@ -71,6 +84,17 @@ ja:
         button1: "ログイン"
         s4_html: "&nbsp;"
         s5_html: "新規登録はこちら"
+    shared:
+      _comment_form:
+        label: "レビューの投稿"
+        placeholder: "コメントを入力..."
+        button: "投稿"
+      _stats:
+        s1_html: "フォロー"
+        s2_html: "フォロワー"
+      _user_info:
+        s1_html: "プロフィール"
+        s2_html: "レビュー"
     users:
       edit:
         title: "設定"
@@ -87,7 +111,7 @@ ja:
         
     static_pages:
       _user_logged_in:
-        s1_html: <h3>コメント一覧</h3>
+        s1_html: <h3>レビューの一覧</h3>
       _user_not_logged_in:
         s1_html: <h1>ようこそMoviestへ</h1>
         s2_html: 

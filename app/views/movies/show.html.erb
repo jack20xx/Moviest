@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <%= render 'show_information'%>
-  <p><strong>🔶レビューを投稿しましょう！</strong></p>
+  <%= t('views.movies.show.s1_html')  %>
     <div class="row">
       <aside class="col-md-4">
         <section class="user_info">
@@ -12,7 +12,7 @@
       </aside>
       <div class="col-md-8">
         <% if !@movie_db.nil? && @movie_db.comments.any? %>
-          <h3>Comments (<%= @movie_db.comments.count %>)</h3>
+          <h3><%= t('views.movies.show.s2_html') %> (<%= @movie_db.comments.count %>)</h3>
           <ol class="comments">
             <%= render @comments %>
           </ol>
@@ -22,5 +22,5 @@
     </div>
   <% else %>
   <%= render 'show_information'%>
-  <%= link_to "🔶ログインしてレビューを投稿しましょう！", root_path %>
+  <%= link_to t('views.movies.show.s3_html'), root_path %>
 <% end %>

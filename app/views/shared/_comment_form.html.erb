@@ -3,8 +3,8 @@
   <div class="field">
     <%= f.hidden_field :movie_id, :value => params[:id] %>
     <%= f.hidden_field :user_id,  :value => current_user.id %>
-    <%= f.label "Review" %>
-    <%= f.text_area :content, placeholder: "Compose new comment..." %>
+    <%= f.label t('views.shared._comment_form.label') %>
+    <%= f.text_area :content, placeholder: t('views.shared._comment_form.placeholder') %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <%= f.submit t('views.shared._comment_form.button'), class: "btn btn-primary" %>
 <% end %>

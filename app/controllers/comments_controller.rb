@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
     if @comment.valid?
       if comment_count < 1 and request.path.include?("/ja") then
         @comment.save
-        flash[:success] = "コメントが投稿されました。"
+        flash[:success] = "レビューが投稿されました。"
         # redirect_to root_url
         redirect_to "/ja/movies/#{@comment.movie_id}"
       elsif comment_count < 1 and request.path.include?("/en") then
@@ -93,7 +93,7 @@ class CommentsController < ApplicationController
       if request.path.include?("/ja")
       # redirect_to root_url
         @comment.save
-        flash[:success] = "コメントが更新されました。"
+        flash[:success] = "レビューが更新されました。"
         redirect_to "/ja/movies/#{@comment.movie_id}"
       else
         @comment.save

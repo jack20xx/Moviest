@@ -50,7 +50,33 @@ en:
         s6_html: <th>Title</th>
         s7_html: <th>Release date</th>
         s8_html: <th>Storyline</th>
-
+      show:
+        s1_html: <p><strong>🔶Post your review!</strong></p>
+        s2_html: "Reviews"
+        s3_html: "🔶Please log in and post your review!"
+    password_resets:
+      new:
+        title: "Forgot password"
+        s1_html: <h1>Forgot password</h1>
+        label: "Registered email"
+        button: "Submit"
+    resend_activations:
+      new:
+        title: "Resend activations"
+        s1_html: <h1>Resend activations</h1>
+        label: "Email used for sending activation"
+        button: "Submit"
+    shared:
+      _comment_form:
+        label: "Review"
+        placeholder: "Compose new comment..."
+        button: "Post"
+      _stats:
+        s1_html: "following"
+        s2_html: "followers"
+      _user_info:
+        s1_html: "view my profile"
+        s2_html: "review"
     sessions:
       new:
         title: "Log in"
@@ -75,7 +101,7 @@ en:
 
     static_pages:
       _user_logged_in:
-        s1_html: <h3>Comments</h3>
+        s1_html: <h3>Reviews</h3>
       _user_not_logged_in:
         s1_html: <h1>Welcome to the Moviest</h1>
         s2_html: 
