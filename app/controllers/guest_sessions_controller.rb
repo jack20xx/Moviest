@@ -7,7 +7,7 @@ class GuestSessionsController < ApplicationController
       user.activated_at = Time.zone.now
     end
       session[:user_id] = user.id
-      flash[:success] = "ゲストユーザーとしてログインしました"
+      flash[:success] = t('controllers.guest_sessions_controller.success')
       redirect_to root_url
   end
 end

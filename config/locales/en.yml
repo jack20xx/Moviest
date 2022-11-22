@@ -1,4 +1,14 @@
 en:
+  controllers:
+    application_controller:
+      danger: "Please log in."
+    guest_sessions_controller:
+      success: "Logged in as a guest user."
+    password_resets_controller:
+      info: "Email sent with password reset instructions."
+      danger1: "Email address not found."
+      success: "Password has been reset."
+      danger2: "Password reset has expired. Please reset again."
   views:
     comments:
       _comment:

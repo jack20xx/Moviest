@@ -42,12 +42,12 @@ class CommentsController < ApplicationController
     if @comment.valid?
       if comment_count < 1 and request.path.include?("/ja") then
         @comment.save
-        flash[:success] = "Comment created!"
+        flash[:success] = "コメントが投稿されました。"
         # redirect_to root_url
         redirect_to "/ja/movies/#{@comment.movie_id}"
       elsif comment_count < 1 and request.path.include?("/en") then
         @comment.save
-        flash[:success] = "Comment created!"
+        flash[:success] = "Comment posted!"
         # redirect_to root_url
         redirect_to "/en/movies/#{@comment.movie_id}"
       else
@@ -90,10 +90,16 @@ class CommentsController < ApplicationController
     # @comment = Comment.find(params[:id])
     # @movie   = Movie.find(param name="comment" value="{#movie_id}")
     if @comment.update(comment_params)
+      if request.path.include?("/ja")
       # redirect_to root_url
-      @comment.save
-       flash[:success] = "Comment created!"
-       redirect_to "/movies/#{@comment.movie_id}"
+        @comment.save
+        flash[:success] = "コメントが更新されました。"
+        redirect_to "/ja/movies/#{@comment.movie_id}"
+      else
+        @comment.save
+        flash[:success] = "Comment updated!"
+        redirect_to "/en/movies/#{@comment.movie_id}"
+      end
     else
       render :edit
     end

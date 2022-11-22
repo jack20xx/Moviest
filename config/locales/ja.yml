@@ -3,11 +3,23 @@ ja:
     models:
       user:
     attributes:
+      password_reset:
+        email: メールアドレス
       user:
         email: メールアドレス
         name: お名前
         password: パスワード
         password_confirmation: パスワード再入力
+  controllers:
+    application_controller:
+      danger: "ログインしてください。"
+    guest_sessions_controller:
+      success: "ゲストユーザーとしてログインしました。"
+    password_resets_controller:
+      info: "メールの指示に従い、パスワードをリセットしてください。"
+      danger1: "メールアドレスが見つかりません。"
+      success: "パスワードがリセットされました。"
+      danger2: "リセットの有効期限が切れています。再度リセットしてください。"
   views:
     comments:
       _comment:
