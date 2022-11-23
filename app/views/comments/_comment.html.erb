@@ -16,12 +16,20 @@
     <% end %>
     <%= comment.favorites.count %>
     <%= t('views.comments._comment.s1_html') %> <%= time_ago_in_words(comment.updated_at) %> <%= t('views.comments._comment.s2_html') %>
-    <% if current_user?(comment.user) and request.path.include?("/ja") and !request.path.include?("/comments") %>
+    <% if current_user?(comment.user) and request.path.include?("/ja") and current_page?(root_path) then%>
+      <%= link_to t('views.comments._comment.edit'), "ja/comments/#{comment.id}/edit?movie_id=#{comment.movie_id}" %>
+      <%= link_to t('views.comments._comment.delete'), comment, method: :delete,
+                                     data: { confirm: t('views.comments._comment.s3_html') } %>
+    <% elsif current_user?(comment.user) and request.path.include?("/ja/ja") then%>
       <%= link_to t('views.comments._comment.edit'), "ja/comments/#{comment.id}/edit?movie_id=#{comment.movie_id}" %>
       <%= link_to t('views.comments._comment.delete'), comment, method: :delete,
                                      data: { confirm: t('views.comments._comment.s3_html') } %>
     <% end %>
-    <% if current_user?(comment.user) and request.path.include?("/en") and !request.path.include?("/comments") %>
+    <% if current_user?(comment.user) and request.path.include?("/en") and current_page?(root_path) then%>
+      <%= link_to t('views.comments._comment.edit'), "en/comments/#{comment.id}/edit?movie_id=#{comment.movie_id}" %>
+      <%= link_to t('views.comments._comment.delete'), comment, method: :delete,
+                                     data: { confirm: t('views.comments._comment.s3_html') } %>
+    <% elsif current_user?(comment.user) and request.path.include?("/en/en") %>
       <%= link_to t('views.comments._comment.edit'), "en/comments/#{comment.id}/edit?movie_id=#{comment.movie_id}" %>
       <%= link_to t('views.comments._comment.delete'), comment, method: :delete,
                                      data: { confirm: t('views.comments._comment.s3_html') } %>
