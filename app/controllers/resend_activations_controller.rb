@@ -6,13 +6,18 @@ class ResendActivationsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:resend_activation][:email].downcase)
-    if @user
-      @user.resend_activation_digest
-      @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+    if @user 
+      if @user.activated? then
+        flash.now[:danger] = t('controllers.resend_activations_controller.danger1')
+        render 'new'
+      elsif !@user.activated? then
+        @user.resend_activation_digest
+        @user.send_activation_email
+        flash[:info] = t('controllers.resend_activations_controller.info')
+        redirect_to root_url
+      end
     else
-      flash.now[:danger] = 'Email is not asociated with any account, please sign up first.'
+      flash.now[:danger] = t('controllers.resend_activations_controller.danger2')
       render 'new'
     end
   end

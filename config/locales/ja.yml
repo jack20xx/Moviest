@@ -18,6 +18,18 @@ ja:
       danger1: "メールアドレスが見つかりません。"
       success: "パスワードがリセットされました。"
       danger2: "リセットの有効期限が切れています。再度リセットしてください。"
+    resend_activations_controller:
+      danger1: "このメールアドレスは既に使用されています。"
+      info: "認証メールが再送されました。ご確認ください。"
+      danger2: "メールアドレスが見つかりませんでした。新規登録してください。"
+    sessions_controller:
+      message1: "アカウントが認証されていません。"
+      message2: "認証メールをご確認ください。"
+      danger: "メールアドレスもしくはパスワードが間違っています。"
+    users_controller:
+      info: "アカウントの認証メールを確認してください。"
+      success1: "設定が更新されました。"
+      success2: "ユーザーが削除されました。"
   views:
     comments:
       _comment:
@@ -96,6 +108,8 @@ ja:
         s1_html: "プロフィール"
         s2_html: "レビュー"
     users:
+      _form:
+        s1_html: "(認証メールの再送はこちらから)"
       edit:
         title: "設定"
         s1_html: <h1>設定の変更</h1>

@@ -47,11 +47,11 @@ class CommentsController < ApplicationController
         redirect_to "/ja/movies/#{@comment.movie_id}"
       elsif comment_count < 1 and request.path.include?("/en") then
         @comment.save
-        flash[:success] = "Comment posted!"
+        flash[:success] = "Review posted!"
         # redirect_to root_url
         redirect_to "/en/movies/#{@comment.movie_id}"
       else
-        flash[:success] = "Can't post a comment twice on the same movie"
+        flash[:success] = "Can't post a review twice on the same movie"
         redirect_to request.referrer || root_url
       end
       
@@ -63,7 +63,7 @@ class CommentsController < ApplicationController
   
   def destroy
     @comment.destroy
-    flash[:success] = "Comment deleted"
+    flash[:success] = "Review deleted"
     redirect_to request.referrer || root_url
   end
   
@@ -97,7 +97,7 @@ class CommentsController < ApplicationController
         redirect_to "/ja/movies/#{@comment.movie_id}"
       else
         @comment.save
-        flash[:success] = "Comment updated!"
+        flash[:success] = "Review updated!"
         redirect_to "/en/movies/#{@comment.movie_id}"
       end
     else

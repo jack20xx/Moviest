@@ -9,6 +9,18 @@ en:
       danger1: "Email address not found."
       success: "Password has been reset."
       danger2: "Password reset has expired. Please reset again."
+    resend_activations_controller:
+      danger1: "Email has already been used."
+      info: "Please check your email to activate your account."
+      danger2: "Email is not associated with any account, please sign up first."
+    sessions_controller:
+      message1: "Account not activated. "
+      message2: "Check your email for the activation link."
+      danger: "Invalid email/password combination"
+    users_controller:
+      info: "Please check your email to activate your account."
+      success1: "Settings updated"
+      success2: "User deleted"
   views:
     comments:
       _comment:
@@ -87,6 +99,8 @@ en:
         s4_html: "New user?"
         s5_html: "Sign up now!"
     users:
+      _form:
+        s1_html: "(To resend account activation)"
       edit:
         title: "Profile"
         s1_html: <h1>Update your profile</h1> 
