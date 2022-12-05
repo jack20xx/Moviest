@@ -16,8 +16,10 @@
   <div class="container">
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <% if current_page?(edit_comment_path) %>
-  
+        <% if I18n.locale == :en && current_page?(edit_comment_path) then %>
+        <li><%= link_to t('views.layouts._header.lang'),   "/ja" %></li>
+        <% elsif I18n.locale == :ja && current_page?(edit_comment_path) %>
+        <li><%= link_to t('views.layouts._header.lang'),   "/en" %></li>
         <% end %>
         <li><%= link_to t('views.layouts._header.home'),   root_path %></li>
         <li><%= link_to t('views.layouts._header.help'),   help_path %></li>
