@@ -30,6 +30,7 @@ en:
         delete: "delete"
         s3_html: "You sure?"
       edit:
+        title: "Edit"
         s1_html: "Release date:"
         s2_html: "Runtime:"
         s3_html: "Genres:"
@@ -52,7 +53,10 @@ en:
         settings: "Settings"
         login: "Log in"
     movies:
+      _show_information:
+        title: "Information"
       search:
+        title: "Search"
         s1_html: <h1>Search</h1>
         placeholder: "movie title..."
         button1: "Search"

@@ -39,6 +39,7 @@ ja:
         delete: "削除"
         s3_html: "本当によろしいですか？"
       edit:
+        title: "編集"
         s1_html: "公開日:"
         s2_html: "時間:"
         s3_html: "ジャンル:"
@@ -61,7 +62,10 @@ ja:
         settings: "設定"
         login: "ログイン"
     movies:
+      _show_information:
+        title: "情報"
       search:
+        title: "検索結果"
         s1_html: <h1>映画検索</h1>
         placeholder: "タイトルを入力"
         button1: "検索"

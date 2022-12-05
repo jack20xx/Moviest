@@ -9,7 +9,7 @@ class MoviesControllerTest < ActionDispatch::IntegrationTest
   test "should get search" do
     get search_path
     assert_response :success
-    assert_select "title", "Search | #{@base_title}"
+    assert_select "title", "検索結果 | #{@base_title}"
   end
 
   # test "should get show" do
