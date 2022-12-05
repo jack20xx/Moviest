@@ -34,6 +34,7 @@ en:
         s2_html: "Runtime:"
         s3_html: "Genres:"
         s4_html: "Storyline:"
+        s5_html: "Reviews"
     layouts:
       _footer:
         about: "About"
@@ -86,6 +87,10 @@ en:
       _stats:
         s1_html: "following"
         s2_html: "followers"
+      _update_comment_form:
+        label: "Review"
+        placeholder: "Compose new comment..."
+        button: "Update"
       _user_info:
         s1_html: "view my profile"
         s2_html: "review"

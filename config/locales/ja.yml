@@ -43,6 +43,7 @@ ja:
         s2_html: "時間:"
         s3_html: "ジャンル:"
         s4_html: "ストーリー:"
+        s5_html: "レビュー"
     layouts:
       _footer:
         about: "このサイトについて"
@@ -104,6 +105,10 @@ ja:
       _stats:
         s1_html: "フォロー"
         s2_html: "フォロワー"
+      _update_comment_form:
+        label: "レビューの投稿"
+        placeholder: "コメントを入力..."
+        button: "更新"
       _user_info:
         s1_html: "プロフィール"
         s2_html: "レビュー"

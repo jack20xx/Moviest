@@ -2,10 +2,10 @@
   <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
   <span class="user"><%= link_to comment.user.name, comment.user %></span>
   <span class="content"><%= comment.content %></span>
-  <% if comment.movie and request.path.include?("/ja") and !request.path.include?("/movies") %>
+  <% if comment.movie and request.path.include?("/ja") and current_page?(root_path) %>
   <span class="title"><%= link_to comment.movie.title, "ja/movies/#{comment.movie_id}" %></span>
   <% end %>
-  <% if comment.movie and request.path.include?("/en") and !request.path.include?("/movies") %>
+  <% if comment.movie and request.path.include?("/en") and current_page?(root_path) %>
   <span class="title"><%= link_to comment.movie.title, "en/movies/#{comment.movie_id}" %></span>
   <% end %>
   <span class="timestamp">

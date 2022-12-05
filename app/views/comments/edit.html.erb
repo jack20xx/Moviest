@@ -32,7 +32,7 @@
   </aside>
   <div class="col-md-8">
     <% if !@movie_db.nil? && @movie_db.comments.any? %>
-      <h3>Comments (<%= @movie_db.comments.count %>)</h3>
+      <h3><%= t('views.comments.edit.s5_html') %> (<%= @movie_db.comments.count %>)</h3>
       <ol class="comments">
         <%= render @comments %>
       </ol>

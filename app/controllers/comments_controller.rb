@@ -79,6 +79,7 @@ class CommentsController < ApplicationController
       @movie_db = Movie.find(@movie_info["id"])
       @comments = @movie_db.comments.paginate(page: params[:page])
     end
+    render :layout => 'application2'
     # @comment.movie   = Movie.find(params[:movie_id])
     # if @comment.user_id != current_user.id
     #   redirect_to comment_path, alert: "access error"
