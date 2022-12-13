@@ -1,4 +1,13 @@
 en:
+  activerecord:
+    models:
+      user:
+    attributes:
+      user:
+        email: email
+        name: name
+        password: password
+        password_confirmation: password confirmation
   controllers:
     application_controller:
       danger: "Please log in."
